@@ -1,0 +1,30 @@
+<h1>Registrar Vuelo</h1>
+<form [formGroup]="productoForm" (ngSubmit)="cerar()">
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Fecha y hora de salida</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="date" id="timeDeparture" name="timeDeparture" placeholder="Fecha y hora de salida" class="form-control"
+        formControlName="timeDeparture">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Destino:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="arrival" name="arrival" placeholder="Destino"
+        class="form-control" formControlName="arrival">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Costo:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="cost" name="cost" placeholder="Costo"
+        class="form-control" formControlName="cost">
+    </div>
+  </div>
+</form>
