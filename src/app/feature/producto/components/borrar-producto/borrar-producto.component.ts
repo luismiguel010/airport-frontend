@@ -22,7 +22,7 @@ export class BorrarProductoComponent implements OnInit {
     console.log(this.deleteForm.value)
     this.productoServices.eliminar(this.deleteForm.value)
     .subscribe(response => {
-      console.log(response.valueOf);
+      console.log(response);
     }, err => {
       console.error(err);
     })
