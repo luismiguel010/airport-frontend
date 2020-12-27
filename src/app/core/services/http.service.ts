@@ -65,6 +65,11 @@ export class HttpService {
     return this.http.put<R>(serviceUrl, body, ropts);
   }
 
+  public doSetDelay<R>(serviceUrl: string, opts?: Options): Observable<R>{
+    const ropts = this.createOptions(opts);
+    return this.http.put<R>(serviceUrl, ropts);
+  }
+
   public doGetParameters<T>(serviceUrl: string, parametros: HttpParams, opts?: Options): Observable<T> {
     const ropts = this.createOptions(opts);
     const options = parametros !== null ? {

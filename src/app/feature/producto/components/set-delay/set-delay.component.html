@@ -1,0 +1,18 @@
+<p>Ingrese el id del vuelo que desea eliminar</p>
+<form [formGroup]="setDelayForm" (ngSubmit)="setdelay()">
+    <div class="row">
+      <div class="col-sm-2">
+        <label>Horas de cierre aeropuerto</label>
+      </div>
+      <div class="col-sm-4">
+        <input validar type="text" id="horas" name="horas" placeholder="Horas de cierre" class="form-control"
+        formControlName="horas">
+      </div>
+    </div> 
+    
+    <div class="row">
+        <div class="col-sm-2">
+          <button role="button" class="btn btn-primary btn-lg">Reprogramar vuelos</button>
+        </div>
+      </div>
+  </form>

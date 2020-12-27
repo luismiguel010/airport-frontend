@@ -10,7 +10,6 @@ import { ProductoService } from '@producto/shared/service/producto.service';
 export class BorrarProductoComponent implements OnInit {
   deleteForm: FormGroup;
   idFligh: string;
-  isDelete: boolean = false;
 
   constructor(protected productoServices: ProductoService) { }
 

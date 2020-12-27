@@ -8,6 +8,7 @@ import { ProductoComponent } from './components/producto/producto.component';
 import { SharedModule } from '@shared/shared.module';
 import { ProductoService } from './shared/service/producto.service';
 import { ActualizarProductoComponent } from './components/actualizar-producto/actualizar-producto.component';
+import { SetDelayComponent } from './components/set-delay/set-delay.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ActualizarProductoComponent } from './components/actualizar-producto/ac
     ListarProductoComponent,
     BorrarProductoComponent,
     ProductoComponent,
-    ActualizarProductoComponent
+    ActualizarProductoComponent,
+    SetDelayComponent
   ],
   imports: [
     ProductoRoutingModule,

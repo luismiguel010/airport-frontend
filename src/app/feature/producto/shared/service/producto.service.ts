@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '@core-service/http.service';
 import { environment } from 'src/environments/environment';
+import { Delay } from '../model/delay';
 import { Producto } from '../model/producto';
 
 
@@ -23,8 +24,13 @@ export class ProductoService {
                                                   this.http.optsName('actualizar producto'));
   }
 
+  public setdelay(delay: Delay){
+    console.log(delay.horas);
+    return this.http.doSetDelay<boolean>(`${environment.endpoint}/setDelay/${delay.horas}`,
+                                          this.http.optsName('eliminar productos'));
+  }
+
   public eliminar(producto: Producto) {
-    console.log(producto.id);
     return this.http.doDelete<boolean>(`${environment.endpoint}/delete/${producto.id}`,
                                                  this.http.optsName('eliminar productos'));
   }
