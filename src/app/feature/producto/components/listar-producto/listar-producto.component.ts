@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 
 import { ProductoService } from '@producto/shared/service/producto.service';
-import { Producto } from '@producto/shared/model/producto';
 
 @Component({
   selector: 'app-listar-producto',
@@ -10,12 +8,20 @@ import { Producto } from '@producto/shared/model/producto';
   styleUrls: ['./listar-producto.component.css']
 })
 export class ListarProductoComponent implements OnInit {
-  public listaProductos: Observable<Producto[]>;
+  public listaProductos: any[] = [];
 
   constructor(protected productoService: ProductoService) { }
 
   ngOnInit() {
-    this.listaProductos = this.productoService.consultar();
+    this.productoService.consultar()
+    .subscribe(
+      (listaProductos) => {
+        this.listaProductos = listaProductos;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
 }

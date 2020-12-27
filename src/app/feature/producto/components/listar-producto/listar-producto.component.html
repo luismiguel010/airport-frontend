@@ -1,8 +1,20 @@
-<p>listar-producto works!</p>
-<div id="productos">
-  <ul class="productos">
-    <li *ngFor="let item of listaProductos | async">
-      <span>{{item.id}}</span> {{item.descripcion}}
-    </li>
-  </ul>
-</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Fecha y hora de salida</th>
+      <th scope="col">Destino</th>
+      <th scope="col">Costo</th>
+      <th scope="col">Es programado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of listaProductos">
+      <th scope="row">{{item.id}}</th>
+      <td>{{item.timeDeparture}}</td>
+      <td>{{item.arrival}}</td>
+      <td>{{item.cost}}</td>
+      <td>{{item.isReprogrammed}}</td>
+    </tr>
+  </tbody>
+</table>

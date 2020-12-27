@@ -12,14 +12,23 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 })
 export class CrearProductoComponent implements OnInit {
   productoForm: FormGroup;
+  idFligh: string;
   constructor(protected productoServices: ProductoService) { }
 
   ngOnInit() {
     this.construirFormularioProducto();
   }
 
-  cerar() {
-    this.productoServices.guardar(this.productoForm.value);
+  crear() {
+    this.productoServices.guardar(this.productoForm.value)
+    .subscribe(
+      (idFligh) => {
+        idFligh = idFligh;
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   }
 
   private construirFormularioProducto() {
