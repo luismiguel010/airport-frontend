@@ -1,0 +1,24 @@
+<div class="card text-center">
+  <div class="card-header">
+    <h5>Programa cierre aeropuerto</h5>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="setDelayForm" (ngSubmit)="setdelay()">
+      <div class="row">
+        <div class="col-sm-4">
+          <label>Horas de cierre aeropuerto</label>
+        </div>
+        <div class="col-sm-6">
+          <input validar type="number" id="horas" name="horas" placeholder="Horas de cierre" class="form-control"
+            formControlName="horas">
+        </div>
+      </div>
+      <p></p>
+      <div class="card-footer">
+        <div>
+          <button role="button" class="btn btn-primary btn-dark">Reprogramar vuelos</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
