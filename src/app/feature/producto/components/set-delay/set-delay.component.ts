@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductoService } from '@producto/shared/service/producto.service';
+import swal from 'sweetalert2';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 1;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 24;
@@ -24,8 +25,11 @@ export class SetDelayComponent implements OnInit {
     this.productoServices.setdelay(this.setDelayForm.value)
     .subscribe(response => {
       console.log(response);
+      swal('Actualizados todos los vuelos con éxito', `Todos los vuelos se actualizaron deacuerdo al cierre programado del aeropuerto`, 'success')
     }, err => {
       console.error(err);
+      swal('Error programando el cierre del aeropuerto', `${err.error.mensaje}`, 'error')
+
     })
   }
 

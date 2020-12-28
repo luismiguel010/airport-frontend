@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProductoService } from '@producto/shared/service/producto.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-borrar-producto',
@@ -9,7 +10,6 @@ import { ProductoService } from '@producto/shared/service/producto.service';
 })
 export class BorrarProductoComponent implements OnInit {
   deleteForm: FormGroup;
-  idFligh: string;
 
   constructor(protected productoServices: ProductoService) { }
 
@@ -22,8 +22,10 @@ export class BorrarProductoComponent implements OnInit {
     this.productoServices.eliminar(this.deleteForm.value)
     .subscribe(response => {
       console.log(response);
+      swal('Vuelo eliminado con éxito', `El vuelo fue eliminado con éxito`, 'success')
     }, err => {
       console.error(err);
+      swal('Error eliminando el vuelo', `${err.error.mensaje}`, 'error')
     })
   }
 

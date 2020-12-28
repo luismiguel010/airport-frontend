@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../../shared/service/producto.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import swal from 'sweetalert2';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
@@ -12,7 +13,7 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 })
 export class CrearProductoComponent implements OnInit {
   productoForm: FormGroup;
-  idFligh: string;
+  idFligh: any;
   constructor(protected productoServices: ProductoService) { }
 
   ngOnInit() {
@@ -21,12 +22,14 @@ export class CrearProductoComponent implements OnInit {
 
   crear() {
     this.productoServices.guardar(this.productoForm.value)
-    .subscribe(
-      (idFligh) => {
-        idFligh = idFligh;
+    .subscribe(response => {
+      this.idFligh = response;
+        console.log(response);
+        swal('Vuelo registrado con éxito', `El vuelo fue creado con el id ${this.idFligh.value}`, 'success')
       },
       (error) => {
-        console.error(error);
+        console.error(error.error.mensaje);
+        swal('Error creando el vuelo', `${error.error.mensaje}`, 'error')
       }
     );
   }

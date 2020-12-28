@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../../shared/service/producto.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import swal from 'sweetalert2';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
@@ -24,8 +25,10 @@ export class ActualizarProductoComponent implements OnInit {
     this.productoServices.actualizar(this.productoForm.value)
     .subscribe(response => {
       console.log(response);
+      swal('Vuelo actualizado con éxito', `El vuelo fue actualizado.`, 'success')
     }, err => {
       console.error(err);
+      swal('Error actualizando el vuelo', `${err.error.mensaje}`, 'error')
     })
   }
 
