@@ -6,7 +6,7 @@ describe('workspace-project Flight', () => {
     let page: AppPage;
     let toolbar: ToolbarPage;
     let flight: FlightPage;
-
+    
     beforeEach(() => {
         page = new AppPage();
         toolbar = new ToolbarPage();
@@ -14,7 +14,7 @@ describe('workspace-project Flight', () => {
     });
 
     it('Debería crear flight', () => {
-        const FECHA_DEL_VUELO = '2020-12-19T21:46:00';
+        const FECHA_DEL_VUELO = "12/31/2023 09:46 PM";
         const DESTINO = 'Londres-Prueba';
         const COSTO = '181.3';
         page.navigateTo();
@@ -28,12 +28,12 @@ describe('workspace-project Flight', () => {
     it('Debería listar productos', () => {
         page.navigateTo();
         toolbar.clickBotonListarFlight();
-        expect(12).toBe(flight.contarFlights());
+        expect(1).toBe(flight.contarFlights());
     });
 
     it('Debería actualizar producto', () => {
         const ID_DEL_VUELO = 'Tokyo-1611512400';
-        const FECHA_DEL_VUELO = '2020-12-19T21:46:00';
+        const FECHA_DEL_VUELO = '12/16/2023 9:46 PM';
         const DESTINO = 'Londres-Prueba';
         const COSTO = '181.3';
         page.navigateTo();
