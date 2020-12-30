@@ -1,38 +1,66 @@
-import { browser, logging } from 'protractor';
-import { NavbarPage } from '../page/navbar/navbar.po';
+import { ToolbarPage } from '../page/toolbar/toolbar.po';
 import { AppPage } from '../app.po';
-import { ProductoPage } from '../page/producto/producto.po';
+import { FlightPage } from '../page/flight/flight.po';
 
-describe('workspace-project Producto', () => {
+describe('workspace-project Flight', () => {
     let page: AppPage;
-    let navBar: NavbarPage;
-    let producto: ProductoPage;
+    let toolbar: ToolbarPage;
+    let flight: FlightPage;
 
     beforeEach(() => {
         page = new AppPage();
-        navBar = new NavbarPage();
-        producto = new ProductoPage();
+        toolbar = new ToolbarPage();
+        flight = new FlightPage();
     });
 
-    it('Deberia crear producto', () => {
-        const ID_PRODUCTO = '001';
-        const DESCRIPCION_PRODUCTO = 'Producto de pruebas';
-
+    it('Debería crear flight', () => {
+        const FECHA_DEL_VUELO = '2020-12-19T21:46:00';
+        const DESTINO = 'Londres-Prueba';
+        const COSTO = '181.3';
         page.navigateTo();
-        navBar.clickBotonProductos();
-        producto.clickBotonCrearProductos();
-        producto.ingresarId(ID_PRODUCTO);
-        producto.ingresarDescripcion(DESCRIPCION_PRODUCTO);
-
-        // Adicionamos las validaciones despues de la creación
-        // expect(<>).toEqual(<>);
+        toolbar.clickBotonCrearFlight();
+        flight.ingresarFechaHora(FECHA_DEL_VUELO);
+        flight.ingresarDestino(DESTINO);
+        flight.ingresarCosto(COSTO);
+        flight.clickButtonCreate();
     });
 
-    it('Deberia listar productos', () => {
+    it('Debería listar productos', () => {
         page.navigateTo();
-        navBar.clickBotonProductos();
-        producto.clickBotonListarProductos();
-
-        expect(4).toBe(producto.contarProductos());
+        toolbar.clickBotonListarFlight();
+        expect(12).toBe(flight.contarFlights());
     });
+
+    it('Debería actualizar producto', () => {
+        const ID_DEL_VUELO = 'Tokyo-1611512400';
+        const FECHA_DEL_VUELO = '2020-12-19T21:46:00';
+        const DESTINO = 'Londres-Prueba';
+        const COSTO = '181.3';
+        page.navigateTo();
+        toolbar.clickBotonActualizarFlight();
+        flight.ingresarId(ID_DEL_VUELO);
+        flight.ingresarFechaHora(FECHA_DEL_VUELO);
+        flight.ingresarDestino(DESTINO);
+        flight.ingresarCosto(COSTO);
+        flight.clickButtonActualizar();
+        
+    });
+
+    it('Debería programar cierre aeropuerto', () => {
+        const HORAS_DE_CIERRE = '2';
+        page.navigateTo();
+        toolbar.clickBotonSetDelayFlight();
+        flight.ingresarHorasDeCierre(HORAS_DE_CIERRE);
+        flight.clickButtonReprogramar();
+    });
+
+    it('Debería eliminar vuelo', () => {
+        const ID_VUELO = 'Lima-1609174800';
+        page.navigateTo();
+        toolbar.clickBotonEliminarFlight();
+        flight.ingresarId(ID_VUELO);
+        flight.clickButtonEliminar();
+    });
+
+
 });

@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('Angular Seed');
+  it('should display title Meteorología Aerocivil', () => {
+    page.navigateTo;
+    //expect(page.getTitleMeteorologiaAerocivil).toEqual("Meteorología Aerocivil");
   });
 
   afterEach(async () => {
