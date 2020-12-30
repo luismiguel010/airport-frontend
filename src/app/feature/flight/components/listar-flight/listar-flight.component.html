@@ -9,7 +9,7 @@
           <th scope="col">Costo</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="flights">
         <tr *ngFor="let flight of listaFlights">
           <th scope="row">{{flight.id}}</th>
           <td>{{flight.timeDeparture | date:'yyyy/MM/dd HH:mm'}}</td>
