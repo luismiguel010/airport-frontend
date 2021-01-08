@@ -5,10 +5,9 @@ import { HomeComponent } from '@home/home.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
-  { path: 'flight', loadChildren: () => import('src/app/feature/flight/flight.module').then(mod => mod.ProductoModule) }
-  
+  { path: 'flight', loadChildren: () => import('src/app/feature/flight/flight.module').then(mod => mod.ProductoModule) },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({

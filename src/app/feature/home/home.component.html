@@ -8,11 +8,27 @@
                         <h4 id="meteorologia">Meteorología Aerocivil</h4>
                     </div>
                     <div class="text">
-                        <span>El siguiente enlace lo redirige a la página de meteorología de la aerocivil.</span>
+                        <span>El siguiente enlace lo redirige a la página de meteorología de la Aerocivil.</span>
                     </div>
                     <a href="http://meteorologia.aerocivil.gov.co/obs_map">Ver</a>
                 </div>
             </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="box-part text-center">
+                    <img src="{{urlMeteorology}}" alt="" width="350" height="350">
+                    <div class="title">
+                        <h4>Meteorología</h4>
+                    </div>
+                    <div class="input-group">
+                        <input (change)="selectFile($event)" type="file" class="form-control" id="inputGroupFile04"
+                            aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <button (click)="uploadFile()" class="btn btn-outline-secondary" type="button"
+                            id="inputGroupFileAddon04">Button</button>
+                    </div>
+                </div>
+            </div>
+
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <div class="box-part text-center">
                     <img src="../../../../assets/svg/airplane.svg" alt="" width="70" height="70">
@@ -20,11 +36,13 @@
                         <h4>Página Oficial Aeropuerto JMC</h4>
                     </div>
                     <div class="text">
-                        <span>El siguiente enlace lo redirige a la página oficial del aeropuerto Jose María Córdova.</span>
+                        <span>El siguiente enlace lo redirige a la página oficial del aeropuerto Jose María
+                            Córdova.</span>
                     </div>
                     <a href="http://www.aeropuertorionegro.co/">Ver</a>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

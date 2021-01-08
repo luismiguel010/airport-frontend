@@ -1,7 +1,9 @@
 {
   "/flight": {
-    "target": "http://localhost:8080",
-    "logLevel": "debug"
+    "target": "https://airportadnceibalinux.azurewebsites.net",
+    "logLevel": "debug",
+    "secure": false,
+    "changeOrigin": true
   }
 
 }
